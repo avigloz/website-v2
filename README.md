@@ -18,4 +18,9 @@ it's pretty barebones, eh? it'll stay that way, for a little while.
 
 <sub><sup>may 19, 2025</sup></sub>
 
+## what's coming 🔜
+
+- updates to gloz.ai
+- gradual updates to this website
+- some snazzy collabs!
 
