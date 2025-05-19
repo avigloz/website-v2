@@ -1,5 +1,11 @@
 # avi glozman
 
+[𝕏](https://x.com/avigloz) 🗨️
+[linkedin](https://www.linkedin.com/in/avi-glozman/) 🪐
+[substack](https://substack.com/@avigloz) ✍️
+
+<br>
+
 hello! 👋
 
 welcome to my website.
@@ -18,7 +24,7 @@ it's pretty barebones, eh? it'll stay that way, for a little while.
 
 <sub><sup>may 19, 2025</sup></sub>
 
-## what's coming 🔜
+## what's 🔜
 
 - updates to gloz.ai
 - gradual updates to this website
