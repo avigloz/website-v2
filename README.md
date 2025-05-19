@@ -13,6 +13,7 @@ welcome to my website.
 ~ **some things i'm working on** ~
 
 - [gloz.ai](https://gloz.ai) ➡️ ai back-translation for any project with a global audience
+- [placeholder] ➡️ 2D roguelike PC game that's still very WIP
 - [vnsh.io](https://vnsh.io) ⏸️ digital dead-drops for passing around small bits, bytes, and bobs
 
 ## who is avi?
