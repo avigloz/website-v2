@@ -19,7 +19,7 @@ welcome to my website.
 
 **avi** is a software engineer, presently at [mercury](https://mercury.com) 🏦
 
-he likes biking, music, eating & cooking, travel, photography, <sub><sup>etc. ad nauseum</sub></sup>
+he likes biking, music, eating & cooking, travel, photography, <sub><sup>etc. ad nauseum</sup></sub>
 
 to reach avi, email him! `avi@guessthedomain 😛`
 
