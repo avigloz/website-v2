@@ -18,7 +18,7 @@ welcome to my website.
 
 ## who is avi?
 
-**avi** is a software engineer, specializing in backend/fullstack technologies across stacks 🏦
+**avi** is a software engineer, specializing in backend/fullstack technologies across stacks ⚡
 
 he likes biking, music, eating & cooking, travel, photography, <sub><sup>etc. ad nauseum</sup></sub>
 
