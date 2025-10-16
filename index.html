@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>avi glozman</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Michroma&family=Inconsolata&display=swap');
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inconsolata', sans-serif;
+            font-size: 1rem;
+            height: 100vh;
+            background-color: #333;
+            color: #faf0e6;
+        }
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 10;
+            width: 10vw;
+            height: 10vw;
+            background-color: #333;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .center h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            font-family: 'Michroma', monospace;
+        }
+        .center a {
+            display: block;
+            margin-top: 10px;
+            color: #faf0e6;
+            text-decoration: underline;
+        }
+        .line {
+            position: absolute;
+            background-color: #faf0e6;
+            border-radius: 1px;
+            z-index: -1;
+        }
+        .horizontal-line-left {
+            width: 17.5vw;
+            height: 1px;
+            top: 50%;
+            left: 25vw;
+        }
+        .horizontal-line-right {
+            width: 17.5vw;
+            height: 1px;
+            top: 50%;
+            left: 57.5vw;
+        }
+        .vertical-line-top {
+            width: 1px;
+            height: 25vh;
+            left: 50%;
+            top: 25vh;
+        }
+        .vertical-line-bottom {
+            width: 1px;
+            height: 25vh;
+            left: 50%;
+            top: 50vh;
+        }
+        .quadrant {
+            position: absolute;
+            padding: 0.5rem;
+            box-sizing: border-box;
+            overflow: auto;
+        }
+        .quadrant ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .quadrant li {
+            margin-bottom: 0.5rem;
+        }
+        .quadrant p {
+            word-wrap: break-word;
+            margin: 0 0 1rem 0;
+        }
+        .quadrant p:last-child {
+            margin-bottom: 0;
+        }
+        .quadrant-content {
+            position: absolute;
+            text-align: left;
+            padding: 0.5rem;
+            max-width: calc(100% - 4rem);
+        }
+        .top-left .quadrant-content {
+            bottom: 5rem;
+            right: 3rem;
+            text-align: right;
+        }
+        .top-right .quadrant-content {
+            bottom: 5rem;
+            left: 3rem;
+            text-align: left;
+        }
+        .bottom-left .quadrant-content {
+            top: 5rem;
+            right: 3rem;
+            text-align: right;
+            max-width: calc(100% - 6rem);
+        }
+        .bottom-right .quadrant-content {
+            top: 5rem;
+            left: 3rem;
+            text-align: left;
+        }
+        .top-left {
+            top: 25vh;
+            left: 25vw;
+            width: 25vw;
+            height: 25vh;
+        }
+        .top-right {
+            top: 25vh;
+            right: 25vw;
+            width: 25vw;
+            height: 25vh;
+        }
+        .bottom-left {
+            bottom: 25vh;
+            left: 25vw;
+            width: 25vw;
+            height: 25vh;
+        }
+        .bottom-right {
+            bottom: 25vh;
+            right: 25vw;
+            width: 25vw;
+            height: 25vh;
+        }
+        a {
+            color: #faf0e6;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="line horizontal-line-left"></div>
+        <div class="line horizontal-line-right"></div>
+        <div class="line vertical-line-top"></div>
+        <div class="line vertical-line-bottom"></div>
+        <div class="center">
+            <h1>avi<br>glozman</h1>
+            <a href="resume.pdf">resume</a>
+        </div>
+        <div class="quadrant top-left">
+            <div class="quadrant-content">
+                <ul>
+                    <li><a href="https://x.com/avigloz">𝕏</a></li>
+                    <li><a href="https://www.linkedin.com/in/avi-glozman/">linkedin</a></li>
+                    <li><a href="https://substack.com/@avigloz">substack</a></li>
+                    <li><a href="https://github.com/avigloz">github</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="quadrant top-right">
+            <div class="quadrant-content">
+                <ul>
+                    <li><a href="https://gloz.ai">gloz.ai</a> - ai back-translation</li>
+                    <li><a href="https://vnsh.io">vnsh.io</a> - digital dead-drops</li>
+                    <li>2d roguelike game (wip)</li>
+                </ul>
+            </div>
+        </div>
+        <div class="quadrant bottom-left">
+            <div class="quadrant-content">
+                <p>software engineer specializing in backend/fullstack technologies. likes biking, music, eating & cooking, travel, photography, etc.</p>
+                <p>email: avi@guessthedomain 😛</p>
+            </div>
+        </div>
+        <div class="quadrant bottom-right">
+            <div class="quadrant-content">
+                <p>simplifying the website. updates to gloz.ai coming soon.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
