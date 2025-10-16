@@ -28,8 +28,8 @@
             transform: translate(-50%, -50%);
             text-align: center;
             z-index: 10;
-            width: 10vw;
-            height: 10vw;
+            width: min(10vw, 150px);
+            height: min(10vw, 150px);
             background-color: #333;
         }
         .center h1 {
@@ -74,7 +74,7 @@
         }
         .center a {
             position: absolute;
-            bottom: 1.5rem;
+            top: calc(50% - 5px + 2.5rem);
             left: 50%;
             transform: translateX(-50%);
             color: #faf0e6;
@@ -194,6 +194,145 @@
             text-align: center;
             font-size: 0.9rem;
         }
+
+        @media (max-width: 768px) {
+            .center {
+                width: min(25vw, 200px);
+                height: min(25vw, 200px);
+            }
+            .center h1 {
+                font-size: 2rem;
+                height: 5.6rem;
+            }
+            #dither-overlay {
+                font-size: 2rem;
+                height: 5.6rem;
+            }
+            .center a {
+                top: calc(50% - 5px + 2.5rem);
+            }
+            .quadrant {
+                width: 35vw;
+                height: 35vh;
+            }
+            .top-left {
+                top: 30vh;
+                left: 30vw;
+            }
+            .top-right {
+                top: 30vh;
+                right: 30vw;
+            }
+            .bottom-left {
+                bottom: 30vh;
+                left: 30vw;
+            }
+            .bottom-right {
+                bottom: 30vh;
+                right: 30vw;
+            }
+            .horizontal-line-left {
+                width: 30vw;
+                left: 30vw;
+            }
+            .horizontal-line-right {
+                width: 30vw;
+                right: 30vw;
+            }
+            .vertical-line-top {
+                height: 30vh;
+                top: 30vh;
+            }
+            .vertical-line-bottom {
+                height: 30vh;
+                bottom: 30vh;
+            }
+            .footer {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 1300px), (max-height: 900px) {
+            .line {
+                display: none;
+            }
+            .quadrant {
+                position: static;
+                width: 100%;
+                height: auto;
+                margin: 0;
+                padding: 1rem;
+                box-sizing: border-box;
+                border-top: 1px solid #faf0e6;
+                top: auto;
+                left: auto;
+                right: auto;
+                bottom: auto;
+            }
+            .quadrant-content {
+                position: static;
+                text-align: center;
+                padding: 0;
+                max-width: none;
+            }
+            .top-left, .top-right, .bottom-left, .bottom-right {
+                top: auto;
+                left: auto;
+                right: auto;
+                bottom: auto;
+            }
+            .center {
+                position: static;
+                width: 100%;
+                height: auto;
+                margin: 2rem 0 0 0;
+                display: block;
+                background-color: transparent;
+                top: auto;
+                left: auto;
+                transform: none;
+            }
+            .center h1 {
+                position: static;
+                display: block;
+                text-align: center;
+                margin: 0;
+                top: auto;
+                left: auto;
+                transform: none;
+            }
+            #dither-overlay {
+                position: static;
+                display: block;
+                text-align: center;
+                margin: 0;
+                top: auto;
+                left: auto;
+                transform: none;
+            }
+            .center a {
+                position: static;
+                display: block;
+                text-align: center;
+                margin: 0.1rem 0;
+                top: auto;
+                left: auto;
+                transform: none;
+            }
+            #dither-overlay {
+                display: none;
+            }
+            .footer {
+                position: static;
+                margin: 0;
+                padding: 1rem;
+                border-top: 1px solid #faf0e6;
+                top: auto;
+                left: auto;
+                right: auto;
+                bottom: auto;
+            }
+        }
     </style>
 </head>
 <body>
@@ -250,27 +389,29 @@
 
 
 
-        h1.addEventListener('mouseenter', () => {
-            overlay.classList.add('active');
-            h1.classList.add('active');
-        });
+        // Only enable dither effect on non-touch devices
+        if (!('ontouchstart' in window)) {
+            h1.addEventListener('mouseenter', () => {
+                overlay.classList.add('active');
+                h1.classList.add('active');
+            });
 
-        h1.addEventListener('mousemove', (e) => {
-            const rect = overlay.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
+            h1.addEventListener('mousemove', (e) => {
+                const rect = overlay.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
 
-            overlay.style.setProperty('--mouse-x', `${x}px`);
-            overlay.style.setProperty('--mouse-y', `${y}px`);
-            h1.style.setProperty('--mouse-x', `${x}px`);
-            h1.style.setProperty('--mouse-y', `${y}px`);
-        });
+                overlay.style.setProperty('--mouse-x', `${x}px`);
+                overlay.style.setProperty('--mouse-y', `${y}px`);
+                h1.style.setProperty('--mouse-x', `${x}px`);
+                h1.style.setProperty('--mouse-y', `${y}px`);
+            });
 
-        h1.addEventListener('mouseleave', () => {
-            overlay.classList.remove('active');
-            h1.classList.remove('active');
-        
-        });
+            h1.addEventListener('mouseleave', () => {
+                overlay.classList.remove('active');
+                h1.classList.remove('active');
+            });
+        }
     </script>
 </body>
 </html>
