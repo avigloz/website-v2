@@ -27,11 +27,11 @@
             left: 50%;
             transform: translate(-50%, -50%);
             text-align: center;
-            z-index: 10;
-            width: 10vw;
-            height: 10vw;
-            max-width: 150px;
-            max-height: 150px;
+            z-index: 100;
+            width: 20vw;
+            height: 20vw;
+            max-width: 250px;
+            max-height: 180px;
             background-color: #333;
         }
         .center h1 {
@@ -44,6 +44,7 @@
             transform: translate(-50%, -50%);
             line-height: 1.4;
             height: 4.5rem;
+            z-index: 101;
         }
         .center h1.active {
             -webkit-mask-image: radial-gradient(circle 60px at var(--mouse-x) var(--mouse-y), transparent 0%, black 100%);
@@ -67,7 +68,7 @@
             line-height: 1.4;
             height: 4.2rem;
             opacity: 0;
-            z-index: 10;
+            z-index: 101;
         }
         #dither-overlay.active {
             opacity: 1;
@@ -81,6 +82,7 @@
             transform: translateX(-50%);
             color: #faf0e6;
             text-decoration: underline;
+            z-index: 101;
         }
         .line {
             position: absolute;
@@ -88,35 +90,26 @@
             border-radius: 1px;
             z-index: -1;
         }
-        .horizontal-line-left {
-            width: 17.5vw;
+        .horizontal-line {
+            width: 50vw;
             height: 1px;
             top: 50%;
-            left: 25vw;
+            left: 50%;
+            transform: translateX(-50%);
         }
-        .horizontal-line-right {
-            width: 17.5vw;
-            height: 1px;
+        .vertical-line {
+            width: 1px;
+            height: 50vh;
+            left: 50%;
             top: 50%;
-            left: 57.5vw;
-        }
-        .vertical-line-top {
-            width: 1px;
-            height: 25vh;
-            left: 50%;
-            top: 25vh;
-        }
-        .vertical-line-bottom {
-            width: 1px;
-            height: 25vh;
-            left: 50%;
-            top: 50vh;
+            transform: translateY(-50%);
         }
         .quadrant {
             position: absolute;
             padding: 0.5rem;
             box-sizing: border-box;
             overflow: auto;
+            z-index: 101;
         }
         .quadrant ul {
             list-style: none;
@@ -203,17 +196,22 @@
                 height: 25vw;
                 max-width: 150px;
                 max-height: 150px;
+                background-color: #333;
+                z-index: 100;
             }
             .center h1 {
                 font-size: 2rem;
                 height: 5.6rem;
+                z-index: 101;
             }
             #dither-overlay {
                 font-size: 2rem;
                 height: 5.6rem;
+                z-index: 101;
             }
             .center a {
                 top: calc(50% - 5px + 2.5rem);
+                z-index: 101;
             }
             .quadrant {
                 width: 35vw;
@@ -235,28 +233,101 @@
                 bottom: 30vh;
                 right: 30vw;
             }
-            .horizontal-line-left {
-                width: 30vw;
-                left: 30vw;
-            }
-            .horizontal-line-right {
-                width: 30vw;
-                right: 30vw;
-            }
-            .vertical-line-top {
-                height: 30vh;
-                top: 30vh;
-            }
-            .vertical-line-bottom {
-                height: 30vh;
-                bottom: 30vh;
-            }
             .footer {
                 font-size: 1rem;
             }
         }
 
-        @media (max-width: 1300px), (max-height: 900px) {
+        @media (max-width: 480px) {
+            .center {
+                width: 30vw;
+                height: 30vw;
+                max-width: 120px;
+                max-height: 120px;
+                background-color: #333;
+                z-index: 100;
+            }
+            .center h1 {
+                font-size: 1rem;
+                height: 2.4rem;
+                top: calc(50% - 5px);
+                z-index: 101;
+            }
+            #dither-overlay {
+                font-size: 1rem;
+                height: 2.4rem;
+                top: calc(50% - 11.5px);
+                z-index: 101;
+            }
+            .center a {
+                top: calc(50% - 5px + 1.5rem);
+                z-index: 101;
+            }
+            .quadrant p, .quadrant li {
+                font-size: 0.75rem;
+            }
+            .quadrant {
+                width: 35vw;
+                height: 35vh;
+            }
+            .quadrant-content {
+                max-width: calc(100% - 1.5rem);
+            }
+            .top-left {
+                top: 10vh;
+                left: 7.5vw;
+            }
+            .top-right {
+                top: 10vh;
+                right: 7.5vw;
+            }
+            .bottom-left {
+                bottom: 10vh;
+                left: 7.5vw;
+            }
+            .bottom-right {
+                bottom: 10vh;
+                right: 7.5vw;
+            }
+            .top-left .quadrant-content {
+                bottom: 1.5rem;
+                right: 0.5rem;
+            }
+            .top-right .quadrant-content {
+                bottom: 1.5rem;
+                left: 0.5rem;
+            }
+            .bottom-left .quadrant-content {
+                top: 1.5rem;
+                right: 0.5rem;
+                max-width: calc(100% - 1rem);
+            }
+            .bottom-right .quadrant-content {
+                top: 1.5rem;
+                left: 0.5rem;
+            }
+            .horizontal-line {
+                width: 80vw;
+            }
+            .vertical-line {
+                height: 60vh;
+            }
+            .footer {
+                font-size: 0.8rem;
+                z-index: 1;
+            }
+            .footer::before {
+                content: "Best viewed on desktop";
+                display: block;
+                margin-bottom: 0.5rem;
+                font-weight: bold;
+            }
+        }
+
+        @media (max-width: 0px), (max-height: 0px) {
+            body {
+                overflow: auto;
+            }
             .line {
                 display: none;
             }
@@ -288,22 +359,26 @@
             .center {
                 position: static;
                 width: 100%;
-                height: auto;
-                margin: 2rem 0 0 0;
-                display: block;
+                min-height: 20vh;
+                margin: 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
                 background-color: transparent;
                 top: auto;
                 left: auto;
                 transform: none;
             }
-            .center h1 {
+            #main-text {
                 position: static;
                 display: block;
-                text-align: center;
-                margin: 0;
+                width: 100%;
+                text-align: center !important;
+                margin: 0 0 1rem 0;
                 top: auto;
                 left: auto;
                 transform: none;
+                white-space: pre-line;
             }
             #dither-overlay {
                 position: static;
@@ -318,7 +393,7 @@
                 position: static;
                 display: block;
                 text-align: center;
-                margin: 0.1rem 0;
+                margin: 0.2rem 0;
                 top: auto;
                 left: auto;
                 transform: none;
@@ -336,19 +411,17 @@
                 right: auto;
                 bottom: auto;
             }
-        }
+        } */
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="line horizontal-line-left"></div>
-        <div class="line horizontal-line-right"></div>
-        <div class="line vertical-line-top"></div>
-        <div class="line vertical-line-bottom"></div>
+        <div class="line horizontal-line"></div>
+        <div class="line vertical-line"></div>
         <div class="center">
             <h1 id="main-text">avi<br>glozman</h1>
             <div id="dither-overlay">avi<br>glozman</div>
-            <a href="resume.pdf">resume</a>
+            <a href="resume.pdf">resumé</a>
         </div>
         <div class="quadrant top-left">
             <div class="quadrant-content">
@@ -372,7 +445,7 @@
         <div class="quadrant bottom-left">
             <div class="quadrant-content">
                 <p>software engineer specializing in backend/fullstack technologies. 
-                <br><br>likes biking, music, eating & cooking, travel, photography, etc.</p>
+                <br><br>likes bouldering, biking, music, eating & cooking, travel, photography, etc.</p>
             </div>
         </div>
         <div class="quadrant bottom-right">
