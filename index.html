@@ -28,8 +28,10 @@
             transform: translate(-50%, -50%);
             text-align: center;
             z-index: 10;
-            width: min(10vw, 150px);
-            height: min(10vw, 150px);
+            width: 10vw;
+            height: 10vw;
+            max-width: 150px;
+            max-height: 150px;
             background-color: #333;
         }
         .center h1 {
@@ -197,8 +199,10 @@
 
         @media (max-width: 768px) {
             .center {
-                width: min(25vw, 200px);
-                height: min(25vw, 200px);
+                width: 25vw;
+                height: 25vw;
+                max-width: 150px;
+                max-height: 150px;
             }
             .center h1 {
                 font-size: 2rem;
