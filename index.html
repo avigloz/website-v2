@@ -14,6 +14,7 @@
             height: 100vh;
             background-color: #333;
             color: #faf0e6;
+            overflow: hidden;
         }
         .container {
             position: relative;
@@ -30,19 +31,52 @@
             width: 10vw;
             height: 10vw;
             background-color: #333;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
         }
         .center h1 {
             margin: 0;
             font-size: 1.5rem;
             font-family: 'Michroma', monospace;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            line-height: 1.2;
+            height: 3.7rem;
+        }
+        .center h1.active {
+            -webkit-mask-image: radial-gradient(circle 60px at var(--mouse-x) var(--mouse-y), transparent 0%, black 100%);
+            mask-image: radial-gradient(circle 60px at var(--mouse-x) var(--mouse-y), transparent 0%, black 100%);
+        }
+        #dither-overlay {
+            position: absolute;
+            top: 50%;
+            left: calc(50% + 0.05px);
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            color: transparent;
+            background-image: radial-gradient(circle, #faf0e6 50%, transparent 50%);
+            background-size: 2.5px 2.5px;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 1.5rem;
+            font-family: 'Michroma', monospace;
+            margin: 0;
+            line-height: 1.2;
+            height: 3.6rem;
+            opacity: 0;
+            z-index: 10;
+        }
+        #dither-overlay.active {
+            opacity: 1;
+            -webkit-mask-image: radial-gradient(circle 60px at var(--mouse-x) var(--mouse-y), black 0%, transparent 100%);
+            mask-image: radial-gradient(circle 60px at var(--mouse-x) var(--mouse-y), black 0%, transparent 100%);
         }
         .center a {
-            display: block;
-            margin-top: 10px;
+            position: absolute;
+            bottom: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
             color: #faf0e6;
             text-decoration: underline;
         }
@@ -169,7 +203,8 @@
         <div class="line vertical-line-top"></div>
         <div class="line vertical-line-bottom"></div>
         <div class="center">
-            <h1>avi<br>glozman</h1>
+            <h1 id="main-text">avi<br>glozman</h1>
+            <div id="dither-overlay">avi<br>glozman</div>
             <a href="resume.pdf">resume</a>
         </div>
         <div class="quadrant top-left">
@@ -209,5 +244,33 @@
             📧 avi@guessthedomain | © 2025
         </div>
     </div>
+    <script>
+        const h1 = document.getElementById('main-text');
+        const overlay = document.getElementById('dither-overlay');
+
+
+
+        h1.addEventListener('mouseenter', () => {
+            overlay.classList.add('active');
+            h1.classList.add('active');
+        });
+
+        h1.addEventListener('mousemove', (e) => {
+            const rect = overlay.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            overlay.style.setProperty('--mouse-x', `${x}px`);
+            overlay.style.setProperty('--mouse-y', `${y}px`);
+            h1.style.setProperty('--mouse-x', `${x}px`);
+            h1.style.setProperty('--mouse-y', `${y}px`);
+        });
+
+        h1.addEventListener('mouseleave', () => {
+            overlay.classList.remove('active');
+            h1.classList.remove('active');
+        
+        });
+    </script>
 </body>
 </html>
