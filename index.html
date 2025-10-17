@@ -83,6 +83,40 @@
                 h1.classList.remove('active');
             });
         }
+
+        // Adjust quadrant font sizes to fit without scrolling
+        function adjustQuadrantFonts() {
+            const quadrants = document.querySelectorAll('.quadrant');
+            quadrants.forEach(quadrant => {
+                const content = quadrant.querySelector('.quadrant-content');
+                if (!content) return;
+
+                const availableHeight = quadrant.offsetHeight - content.offsetTop;
+                if (availableHeight <= 0) return;
+
+                let minFont = 8;
+                let maxFont = 16;
+                let bestFont = 16;
+
+                // Binary search for largest font that fits
+                for (let i = 0; i < 10; i++) {
+                    const midFont = (minFont + maxFont) / 2;
+                    content.style.fontSize = midFont + 'px';
+                    if (content.scrollHeight <= availableHeight) {
+                        bestFont = midFont;
+                        minFont = midFont;
+                    } else {
+                        maxFont = midFont;
+                    }
+                }
+
+                content.style.fontSize = bestFont + 'px';
+            });
+        }
+
+        // Run on load and resize
+        window.addEventListener('load', adjustQuadrantFonts);
+        window.addEventListener('resize', adjustQuadrantFonts);
     </script>
 </body>
 

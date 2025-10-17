@@ -115,6 +115,8 @@ body {
     transform: translateY(-50%);
 }
 
+
+
 .quadrant {
     position: absolute;
     padding: 0.5rem;
@@ -122,6 +124,12 @@ body {
     overflow: auto;
     z-index: 101;
     pointer-events: none;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.quadrant::-webkit-scrollbar {
+    display: none;
 }
 
 .quadrant ul {
@@ -304,10 +312,7 @@ a {
         z-index: 101;
     }
 
-    .quadrant p,
-    .quadrant li {
-        font-size: 0.75rem;
-    }
+
 
     .quadrant {
         width: 35vw;
